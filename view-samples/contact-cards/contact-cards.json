@@ -83,7 +83,7 @@
                 "children": [
                   {
                     "elmType": "span",
-                    "txtContent": "[$Title]",
+                    "txtContent": "[$File_x0020_Name]",
                     "style": {
                       "display": "block"
                     },
@@ -103,9 +103,9 @@
                   },
                   {
                     "elmType": "span",
-                    "txtContent": "[$Company]",
+                    "txtContent": "[$HomePhone]",
                     "style": {
-                      "display": "=if([$Company] == '', 'none', 'block')"
+                      "display": "=if([$HomePhone] == '', 'none', 'block')"
                     },
                     "attributes": {
                       "class": "ms-fontSize-m ms-fontWeight-regular ms-fontColor-neutralSecondary"
@@ -131,7 +131,7 @@
                     },
                     "attributes": {
                       "class": "ms-fontSize-xs ms-fontWeight-regular ms-fontColor-neutralPrimary ms-fontColor-themePrimary--hover",
-                      "href": "='mailto:' + [$Email] + '?body=Dear ' + [$Title] + ',\r\n'"
+                      "href": "='mailto:' + [$Email] + '?body=Dear ' + [$FirstName] + ',\r\n'"
                     },
                     "children": [
                       {
@@ -153,7 +153,7 @@
                   {
                     "elmType": "span",
                     "style": {
-                      "display": "=if([$Phone] == '', 'none', 'block')",
+                      "display": "=if([$CellPhone] == '', 'none', 'block')",
                       "width": "100%"
                     },
                     "attributes": {
@@ -172,7 +172,7 @@
                       },
                       {
                         "elmType": "span",
-                        "txtContent": "[$Phone]"
+                        "txtContent": "[$CellPhone]"
                       }
                     ]
                   }
@@ -202,25 +202,37 @@
               "text-align": "center"
             },
             "children": [
-              {
-                "elmType": "a",
-                "attributes": {
-                  "href": "='https://www.google.com/maps/place/' + if([$StreetAddress] == '', '', [$StreetAddress] + ',') + if([$City] == '', '', [$City] + ',') + if([$State] == '', '', [$State]) + if([$ZipCode] == '', '', ' ' + [$ZipCode]) + '/'",
-                  "target": "_blank"
-                },
-                "style": {
-                  "height": "100%"
-                },
-                "children": [
                   {
-                    "elmType": "img",
+                    "elmType": "a",
+                    "txtContent": "[$RelatedContacts]",
+                    "style": {
+                      "display": "=if([$RelatedContacts] == '', 'none', 'block')"
+                    },
                     "attributes": {
-                      "src": "='https://maps.googleapis.com/maps/api/staticmap?center=' + if([$StreetAddress] == '', '', [$StreetAddress] + ',') + if([$City] == '', '', [$City] + ',') + if([$State] == '', '', [$State]) + if([$ZipCode] == '', '', ' ' + [$ZipCode]) + '&size=200x60&key=AIzaSyDKNauYNcs4ZOq7sQMWYDyz1x82l00ek34'"
+                      "class": "ms-fontSize-l ms-fontWeight-semibold ms-fontColor-neutralPrimary"
+                    }
+                  },
+                  {
+                    "elmType": "span",
+                    "txtContent": "[$JobTitle]",
+                    "style": {
+                      "display": "=if([$JobTitle] == '', 'none', 'block')"
+                    },
+                    "attributes": {
+                      "class": "ms-fontSize-m ms-fontWeight-regular ms-fontColor-neutralSecondary"
+                    }
+                  },
+                  {
+                    "elmType": "span",
+                    "txtContent": "[$HomePhone]",
+                    "style": {
+                      "display": "=if([$HomePhone] == '', 'none', 'block')"
+                    },
+                    "attributes": {
+                      "class": "ms-fontSize-m ms-fontWeight-regular ms-fontColor-neutralSecondary"
                     }
                   }
                 ]
-              }
-            ]
           },
           {
             "elmType": "div",
@@ -231,9 +243,9 @@
             "children": [
               {
                 "elmType": "span",
-                "txtContent": "[$StreetAddress]",
+                "txtContent": "[$WorkAddress]",
                 "style": {
-                  "display": "=if([$StreetAddress] == '', 'none', 'block')"
+                  "display": "=if([$WorkAddress] == '', 'none', 'block')"
                 },
                 "attributes": {
                   "class": "ms-fontSize-sPlus ms-fontWeight-regular ms-fontColor-neutralSecondary"
@@ -251,9 +263,9 @@
               },
               {
                 "elmType": "span",
-                "txtContent": "No address provided",
+                "txtContent": "No corporations found",
                 "style": {
-                  "display": "=if([$City] == '' && [$State] == '' && [$ZipCode] == '', 'block', 'none')"
+                  "display": "=if([$Corporations] == '', 'block', 'none')"
                 },
                 "attributes": {
                   "class": "ms-fontSize-s ms-fontWeight-semilight ms-fontColor-neutralTertiary"
